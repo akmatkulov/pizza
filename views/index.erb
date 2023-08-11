@@ -1,3 +1,14 @@
 <h2>Welcome to Pizza Shop</h2>
-<button class="btn btn-primary" onclick="something()">Clickme</button>
 
+<div class="row">
+    <% @products.each do |item| %>
+    <div class="col-md-3">
+        <div><%= item.title %></div>
+        <div><img src="<%= item.path_to_image %>" width="200" height="200"></div>
+        <div><%= item.description %></div>
+        <div>Size: <%= item.size %></div>
+        <div>Price: <%= item.price %></div>
+    </div>
+    <% end %>
+</div>
+<button class="btn btn-primary" onclick="something()">Clickme</button>
