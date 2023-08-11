@@ -6,11 +6,8 @@ require 'sinatra/activerecord'
 
 set :database, {adapter: "sqlite3", database: "pizza.sqlite3"}
 
-
 class Product < ActiveRecord::Base
 end
-
-
 
 get '/' do
 	erb :index
