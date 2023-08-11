@@ -6,9 +6,12 @@
         <div><%= item.title %></div>
         <div><img src="<%= item.path_to_image %>" width="200" height="200"></div>
         <div><%= item.description %></div>
-        <div>Size: <%= item.size %></div>
-        <div>Price: <%= item.price %></div>
+        <div>Size: <%= item.size %> cm</div>
+        <div>Price: <%= item.price %> rub</div>
+        <div><button type="button" class="btn btn-success" onclick="add_to_cart(<%= item.id %>)">AddToCart</button></div>
     </div>
     <% end %>
 </div>
+<br/>
+<br/>
 <button class="btn btn-primary" onclick="something()">Clickme</button>
