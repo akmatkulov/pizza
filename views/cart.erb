@@ -3,7 +3,7 @@
 <table class='table table-striped'>
     <thead>
         <tr>
-            <th>Name</th>
+            <th>Title</th>
             <th>Price</th>
             <th>Qty</th>
         </tr>
@@ -30,4 +30,25 @@
         
     <tbody>
 </table>
+
+<form method="post" action="/place_order">
+    <input name="order[orders_input]" type="hidden" value="<%= @orders_input %>">
+        <table border="1px">
+          <tr>
+            <td><label for="order[name]"><b>Your Name:</b></label></td>
+            <td><input type="text" name="order[name]"></td>
+          </tr>
+          <tr>
+            <td><label for="order[phone]"><b>Phone number:</b></label></td>
+            <td><input type="text" name="order[phone]"></td>
+          </tr>
+
+          <tr>
+            <td><label for="order[address]"><b>Address:</b></label></td>
+            <td><input type="text" name="order[address]"></td>
+          </tr>
+        </table>
+        <button type="submit" class="btn btn-success btn-lg">Place this order!</button>
+   
+      </form>
 
