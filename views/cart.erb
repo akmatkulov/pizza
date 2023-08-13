@@ -1,54 +1,55 @@
-<h2>Cart page</h2>
 
-<table class='table table-striped'>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Qty</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% total_price = 0 %>
-        <% total_qty = 0 %>
-        <% @items.each do |item| %>
-        <tr>
-            <td><%= item[0].title %></td>
-            <td><%= item[0].price %></td>
-            <td><%= item[1] %></td>
-        </tr>
-        <% total_price += item[0].price * item[1].to_i %>
-        <% total_qty += item[1].to_i %>
-        <% end %>
+<div id="cart">
+    <h2>Cart page</h2>
+    <table class='table table-striped'>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Qty</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% total_price = 0 %>
+            <% total_qty = 0 %>
+            <% @items.each do |item| %>
+            <tr>
+                <td><%= item[0].title %></td>
+                <td><%= item[0].price %></td>
+                <td><%= item[1] %></td>
+            </tr>
+            <% total_price += item[0].price * item[1].to_i %>
+            <% total_qty += item[1].to_i %>
+            <% end %>
 
-         <tr>
-            <td></td>
-            <td><%= total_price %> rub</td>
-            <td><%= total_qty %></td>
-           
-        </tr>
-        
-    <tbody>
-</table>
+            <tr>
+                <td></td>
+                <td><%= total_price %> rub</td>
+                <td><%= total_qty %></td>
+              
+            </tr>
+            
+        <tbody>
+    </table>
 
-<form method="post" action="/place_order">
-    <input name="order[orders_input]" type="hidden" value="<%= @orders_input %>">
-        <table border="1px">
-          <tr>
-            <td><label for="order[name]"><b>Your Name:</b></label></td>
-            <td><input type="text" name="order[name]"></td>
-          </tr>
-          <tr>
-            <td><label for="order[phone]"><b>Phone number:</b></label></td>
-            <td><input type="text" name="order[phone]"></td>
-          </tr>
+    <form method="post" action="/place_order">
+        <input name="order[orders_input]" type="hidden" value="<%= @orders_input %>">
+            <table border="1px">
+              <tr>
+                <td><label for="order[name]"><b>Your Name:</b></label></td>
+                <td><input type="text" name="order[name]"></td>
+              </tr>
+              <tr>
+                <td><label for="order[phone]"><b>Phone number:</b></label></td>
+                <td><input type="text" name="order[phone]"></td>
+              </tr>
 
-          <tr>
-            <td><label for="order[address]"><b>Address:</b></label></td>
-            <td><input type="text" name="order[address]"></td>
-          </tr>
-        </table>
-        <button type="submit" class="btn btn-success btn-lg">Place this order!</button>
-        <button class="btn btn-danger btn-lg" onclick="return cancel_order()">Cancel</button>
-      </form>
-
+              <tr>
+                <td><label for="order[address]"><b>Address:</b></label></td>
+                <td><input type="text" name="order[address]"></td>
+              </tr>
+            </table>
+            <button type="submit" class="btn btn-success btn-lg">Place this order!</button>
+            <button class="btn btn-danger btn-lg" onclick="return cancel_order()">Cancel</button>
+          </form>
+</div>
